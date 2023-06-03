@@ -1,0 +1,5 @@
+!dist/
+dist/*
+!dist/pdf.worker.cjs
+node_modules
+releases/*.tgz
