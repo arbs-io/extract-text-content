@@ -8,13 +8,19 @@ const shared = {
   loader: { '.node': 'file' },
   bundle: true,
   minify: true,
+  logLevel: 'debug',
+  platform: 'node',
 }
 
 esbuild.build({
   ...shared,
+  outfile: 'dist/index.mjs',
+  format: 'esm',
+})
+
+esbuild.build({
+  ...shared,
   outfile: 'dist/index.cjs',
-  platform: 'node',
-  logLevel: 'debug',
   format: 'cjs',
 })
 
