@@ -1,6 +1,7 @@
 /node_modules
 /releases
 /src/*
+/tests
 /package-test
 .gitignore
 .eslintrc.js
