@@ -1,0 +1,23 @@
+{
+  "name": "package-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "npm run npm:un && npm run npm:in && npx nodemon",
+    "npm:un": "npm uninstall '@arbs.io/extract-text-content'",
+    "npm:in": "npm install ../package/releases/arbs.io-extract-text-content-0.0.1.tgz"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@arbs.io/extract-text-content": "file:../package/releases/arbs.io-extract-text-content-0.0.1.tgz"
+  }
+}
