@@ -6,8 +6,8 @@
   "scripts": {
     "start:dev-local": "npm run npm:uninstall && npm run npm:install-local && npx nodemon",
     "start:dev-remote": "npm run npm:uninstall && npm run npm:install-remote && npx nodemon",
-    "npm:uninstall": "npm uninstall '@arbs.io/extract-text-content'",
-    "npm:install-local": "npm install ../package/releases/arbs.io-extract-text-content-0.0.1.tgz",
+    "npm:uninstall": "npm uninstall @arbs.io/extract-text-content",
+    "npm:install-local": "npm install ../releases/arbs.io-extract-text-content-0.0.2.tgz",
     "npm:install-remote": "npm install @arbs.io/extract-text-content"
   },
   "keywords": [],
@@ -20,6 +20,6 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "@arbs.io/extract-text-content": "file:../package/releases/arbs.io-extract-text-content-0.0.1.tgz"
+    "@arbs.io/extract-text-content": "file:../releases/arbs.io-extract-text-content-0.0.2.tgz"
   }
 }
