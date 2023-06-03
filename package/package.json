@@ -3,13 +3,23 @@
   "version": "0.0.1",
   "description": "Package to parse and retreive text from documents",
   "license": "MIT",
+  "private": false,
+  "publisher": "AndrewButson",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arbs-io/extract-text-content.git"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/arbs-io"
+  },
   "type": "module",
   "main": "dist/index.cjs",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "npm install && npm run npm:build && npm run npm:pack",
     "npm:build": "tsc && node esbuild.config.js",
-    "npm:pack": "npm pack --pack-destination=./releases"
+    "npm:pack": "npm pack --pack-destination=./releases",
+    "npm:publish": "npm publish --access=public"
   },
   "devDependencies": {
     "@types/node": "^20.2.5",

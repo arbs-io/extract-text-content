@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "npm run npm:un && npm run npm:in && npx nodemon",
-    "npm:un": "npm uninstall '@arbs.io/extract-text-content'",
-    "npm:in": "npm install ../package/releases/arbs.io-extract-text-content-0.0.1.tgz"
+    "start:dev-local": "npm run npm:uninstall && npm run npm:install-local && npx nodemon",
+    "start:dev-remote": "npm run npm:uninstall && npm run npm:install-remote && npx nodemon",
+    "npm:uninstall": "npm uninstall '@arbs.io/extract-text-content'",
+    "npm:install-local": "npm install ../package/releases/arbs.io-extract-text-content-0.0.1.tgz",
+    "npm:install-remote": "npm install @arbs.io/extract-text-content"
   },
   "keywords": [],
   "author": "",
