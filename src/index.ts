@@ -1,7 +1,4 @@
-//https://snyk.io/blog/best-practices-create-modern-npm-package/
 import * as fs from 'fs'
-// import { fileTypeFromBuffer } from 'file-type'
-// const ft = await import('file-type')
 import mammoth from 'mammoth'
 import { NodeHtmlMarkdown } from 'node-html-markdown'
 // import pdfjsLib from 'pdfjs-dist'
@@ -35,10 +32,6 @@ export async function extractTextFromFile({
       resolve(uint8Array)
     })
   })
-
-  //Validate the mime type for binary formats
-  // const validateFiletype = await ft.fileTypeFromBuffer(bufferArray)
-  // if (validateFiletype) filetype = validateFiletype.mime
 
   return await extractTextFromBuffer({ bufferArray, filetype })
 }
