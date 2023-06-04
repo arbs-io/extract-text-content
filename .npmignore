@@ -4,8 +4,6 @@
 /tests
 /package-test
 .gitignore
-.eslintrc.js
 package-lock.json
 tsconfig.json
-/dist/canvas-Y7CZTKAF.node
 esbuild.config.js

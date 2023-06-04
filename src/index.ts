@@ -1,9 +1,7 @@
 import * as fs from 'fs'
+import pdfParse from 'pdf-parse'
 import mammoth from 'mammoth'
 import { NodeHtmlMarkdown } from 'node-html-markdown'
-// import pdfjsLib from 'pdfjs-dist'
-// import { TextItem } from 'pdfjs-dist/types/src/display/api'
-// pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdf.worker.js'
 
 export interface TextExtract {
   mimeType: string
@@ -27,12 +25,10 @@ export async function extractTextFromFile({
       reject(error)
     })
     fileStream.on('end', () => {
-      // resolve(Buffer.concat(chunks))
       const uint8Array = new Uint8Array(Buffer.concat(chunks))
       resolve(uint8Array)
     })
   })
-
   return await extractTextFromBuffer({ bufferArray, filetype })
 }
 
@@ -45,39 +41,17 @@ export async function extractTextFromBuffer({
 }): Promise<TextExtract> {
   switch (filetype) {
     case 'application/pdf': {
-      // // pdfjsLib.GlobalWorkerOptions.workerSrc = require('pdfjs-dist/build/pdf.worker')
-      // pdfjsLib.GlobalWorkerOptions.workerSrc =
-      //   'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.7.107/pdf.worker.js'
-      // const doc = await pdfjsLib.getDocument({
-      //   data: bufferArray,
-      //   useSystemFonts: true,
-      // }).promise
-
-      // const pageTexts = Array.from({ length: doc.numPages }, async (_, i) => {
-      //   const page = await doc.getPage(i + 1)
-      //   const textContent = await page.getTextContent()
-      //   return textContent.items
-      //     .filter((item): item is TextItem => 'str' in item)
-      //     .map((token) => token.str)
-      //     .join('')
-      // })
-
-      // const textExtract: TextExtract = {
-      //   mimeType: filetype,
-      //   content: (await Promise.all(pageTexts)).join(''),
-      // }
-      // return textExtract
-
+      const buffer = Buffer.from(bufferArray.buffer)
+      const pdfData = await pdfParse(buffer)
       const textExtract: TextExtract = {
-        mimeType: 'error/not-implemented',
-        content: 'not-implemented',
+        mimeType: filetype,
+        content: pdfData.text,
       }
       return textExtract
     }
     case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document': {
       // i.e. docx file
       const buffer = Buffer.from(bufferArray.buffer)
-
       const docxResult = await mammoth.extractRawText({
         buffer: buffer,
       })
