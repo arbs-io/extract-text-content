@@ -1,9 +1,6 @@
 import * as fs from 'fs'
 import mammoth from 'mammoth'
 import { NodeHtmlMarkdown } from 'node-html-markdown'
-// import pdfjsLib from 'pdfjs-dist'
-// import { TextItem } from 'pdfjs-dist/types/src/display/api'
-// pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdf.worker.js'
 
 export interface TextExtract {
   mimeType: string
@@ -31,14 +28,6 @@ export async function extractTextFromFile({
       resolve(uint8Array)
     })
   })
-
-  // const fileType = await ft.fileTypeFromBuffer(bufferArray)
-  // if (fileType && fileType.mime) {
-  //   return await extractTextFromBuffer({
-  //     bufferArray: bufferArray,
-  //     filetype: fileType.mime.toString(),
-  //   })
-  // }
   return await extractTextFromBuffer({ bufferArray, filetype })
 }
 
@@ -51,29 +40,6 @@ export async function extractTextFromBuffer({
 }): Promise<TextExtract> {
   switch (filetype) {
     case 'application/pdf': {
-      // // pdfjsLib.GlobalWorkerOptions.workerSrc = require('pdfjs-dist/build/pdf.worker')
-      // pdfjsLib.GlobalWorkerOptions.workerSrc =
-      //   'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.7.107/pdf.worker.js'
-      // const doc = await pdfjsLib.getDocument({
-      //   data: bufferArray,
-      //   useSystemFonts: true,
-      // }).promise
-
-      // const pageTexts = Array.from({ length: doc.numPages }, async (_, i) => {
-      //   const page = await doc.getPage(i + 1)
-      //   const textContent = await page.getTextContent()
-      //   return textContent.items
-      //     .filter((item): item is TextItem => 'str' in item)
-      //     .map((token) => token.str)
-      //     .join('')
-      // })
-
-      // const textExtract: TextExtract = {
-      //   mimeType: filetype,
-      //   content: (await Promise.all(pageTexts)).join(''),
-      // }
-      // return textExtract
-
       const textExtract: TextExtract = {
         mimeType: 'error/not-implemented',
         content: 'not-implemented',
