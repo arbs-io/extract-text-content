@@ -1,4 +1,5 @@
 import * as fs from 'fs'
+import { fileTypeFromBuffer } from 'file-type'
 import mammoth from 'mammoth'
 import { NodeHtmlMarkdown } from 'node-html-markdown'
 // import pdfjsLib from 'pdfjs-dist'
@@ -27,12 +28,18 @@ export async function extractTextFromFile({
       reject(error)
     })
     fileStream.on('end', () => {
-      // resolve(Buffer.concat(chunks))
       const uint8Array = new Uint8Array(Buffer.concat(chunks))
       resolve(uint8Array)
     })
   })
 
+  const fileType = await fileTypeFromBuffer(bufferArray)
+  if (fileType && fileType.mime) {
+    return await extractTextFromBuffer({
+      bufferArray: bufferArray,
+      filetype: fileType.mime.toString(),
+    })
+  }
   return await extractTextFromBuffer({ bufferArray, filetype })
 }
 

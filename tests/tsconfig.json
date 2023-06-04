@@ -15,6 +15,6 @@
       "@app/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/index.mts"],
   "exclude": ["node_modules", ".vscode-test"]
 }
