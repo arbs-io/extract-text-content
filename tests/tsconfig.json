@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
     "incremental": false,
-    "target": "esnext",
+    "target": "es2020",
     "module": "commonjs",
+    "moduleResolution": "nodenext",
+    "lib": ["es2020"],
     "declaration": true,
     "outDir": "dist",
     "esModuleInterop": true,

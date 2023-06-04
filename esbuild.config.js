@@ -1,5 +1,7 @@
-import esbuild from 'esbuild'
-import npmDts from 'npm-dts'
+const esbuild = require('esbuild')
+const npmDts = require('npm-dts')
+// import esbuild from 'esbuild'
+// import npmDts from 'npm-dts'
 
 const entryFile = 'src/index.ts'
 
@@ -8,13 +10,13 @@ const shared = {
   loader: { '.node': 'file' },
   bundle: true,
   minify: true,
-  logLevel: 'debug',
+  logLevel: 'info',
   platform: 'node',
 }
 
 esbuild.build({
   ...shared,
-  outfile: 'dist/index.mjs',
+  outfile: 'dist/index.js',
   format: 'esm',
 })
 

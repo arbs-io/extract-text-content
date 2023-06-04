@@ -20,6 +20,6 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "@arbs.io/extract-text-content": "file:../releases/arbs.io-extract-text-content-0.0.3.tgz"
+    "@arbs.io/extract-text-content": "file:../releases/arbs.io-extract-text-content-0.0.4.tgz"
   }
 }
