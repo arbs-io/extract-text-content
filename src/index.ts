@@ -1,4 +1,5 @@
 import * as fs from 'fs'
+import pdfParse from 'pdf-parse'
 import mammoth from 'mammoth'
 import { NodeHtmlMarkdown } from 'node-html-markdown'
 
@@ -40,16 +41,17 @@ export async function extractTextFromBuffer({
 }): Promise<TextExtract> {
   switch (filetype) {
     case 'application/pdf': {
+      const buffer = Buffer.from(bufferArray.buffer)
+      const pdfData = await pdfParse(buffer)
       const textExtract: TextExtract = {
-        mimeType: 'error/not-implemented',
-        content: 'not-implemented',
+        mimeType: filetype,
+        content: pdfData.text,
       }
       return textExtract
     }
     case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document': {
       // i.e. docx file
       const buffer = Buffer.from(bufferArray.buffer)
-
       const docxResult = await mammoth.extractRawText({
         buffer: buffer,
       })

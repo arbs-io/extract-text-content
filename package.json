@@ -37,7 +37,9 @@
     "unbuild": "^1.2.1"
   },
   "dependencies": {
+    "@types/pdf-parse": "^1.1.1",
     "mammoth": "^1.6.0",
-    "node-html-markdown": "^1.3.0"
+    "node-html-markdown": "^1.3.0",
+    "pdf-parse": "^1.1.1"
   }
 }
