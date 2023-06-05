@@ -41,7 +41,7 @@ const walkTree = (
     if (!step) {
       return guessFile
     }
-    if (step && step.matches) {
+    if (step?.matches) {
       guessFile = step.matches.slice(0)
     }
     index += 1

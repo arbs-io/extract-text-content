@@ -2,22 +2,17 @@ import { toHex } from './toHex'
 import { createComplexNode, createNode, Info, merge, Tree } from './tree'
 
 // https://en.wikipedia.org/wiki/List_of_file_signatures
-let fileType = new Map()
 let tree: Tree = {
   noOffset: null,
   offset: {},
 }
 
-type TypeName = string
-type Signature = string[]
-
 const add = (
-  typename: TypeName,
-  signature: Signature,
+  typename: string,
+  signature: string[],
   additionalInfo?: Info | undefined,
   offset?: number
 ) => {
-  fileType.set(typename, signature)
   if (offset) {
     const existing = tree.offset[toHex(offset)]
     if (!existing) {
@@ -884,4 +879,4 @@ add('mpeg', ['0x00', '0x00', '0x01', '0xB3'], {
 
 add('hl2demo', ['48', '4C', '32', '44', '45', '4D', '4F'])
 
-export default (): Tree => tree as Tree
+export default (): Tree => tree
