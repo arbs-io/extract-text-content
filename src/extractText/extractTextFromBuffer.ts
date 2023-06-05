@@ -2,14 +2,26 @@ import pdfParse from 'pdf-parse'
 import mammoth from 'mammoth'
 import { NodeHtmlMarkdown } from 'node-html-markdown'
 import { ITextExtract } from '.'
+import { fileTypeInfo } from '../magicBytes'
 
 export async function extractTextFromBuffer({
   bufferArray,
   filetype,
 }: {
   bufferArray: Uint8Array
-  filetype: string
+  filetype?: string
 }): Promise<ITextExtract> {
+  const mimeType = fileTypeInfo(bufferArray).map((e) => (e.mime ? e.mime : ''))
+  console.log(`Found: ${mimeType}`)
+
+  const fileTypeInfos = fileTypeInfo(bufferArray)
+
+  if (fileTypeInfos && fileTypeInfos.length > 0) {
+    // filetype = fileTypeInfos[0].mime
+    fileTypeInfos.forEach((info) => {
+      console.log(`\tType:${info.typename} ${info.mime} ${info.extension}`)
+    })
+  }
   switch (filetype) {
     case 'application/pdf': {
       const buffer = Buffer.from(bufferArray.buffer)

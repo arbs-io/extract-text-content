@@ -6,7 +6,7 @@ export async function extractTextFromFile({
   filetype,
 }: {
   filepath: string
-  filetype: string
+  filetype?: string
 }): Promise<ITextExtract> {
   const bufferArray: Uint8Array = await new Promise((resolve, reject) => {
     const fileStream = fs.createReadStream(filepath)
