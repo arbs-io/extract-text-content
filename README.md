@@ -1,5 +1,11 @@
 This npm package, @arbs.io/extract-text-content, offers a straightforward method to extract text content from various binary and text file formats. The package comes with a pre-built configuration that works out-of-the-box, requiring no additional setup. It is designed for use in Node.js environments, including Visual Studio Code extensions.
 
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_extract-text-content&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=arbs-io_extract-text-content)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_extract-text-content&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=arbs-io_extract-text-content)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_extract-text-content&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=arbs-io_extract-text-content)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_extract-text-content&metric=bugs)](https://sonarcloud.io/summary/new_code?id=arbs-io_extract-text-content)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_extract-text-content&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=arbs-io_extract-text-content)
+
 ## Supported MIME Types
 
 The current version of the package supports extraction from the following MIME types:
