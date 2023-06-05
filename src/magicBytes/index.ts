@@ -1,0 +1,1 @@
+export { fileTypeInfo } from './fileTypeInfo'
