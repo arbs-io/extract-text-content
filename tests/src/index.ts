@@ -5,8 +5,6 @@ import { extractTextFromFile } from '@arbs.io/extract-text-content'
 const docxPath = './data/microservices.docx'
 extractTextFromFile({
   filepath: docxPath,
-  filetype:
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
 }).then((results) => {
   console.log(`docx (${docxPath})`)
   console.log(`\t- mime-type: ${results.mimeType}`)
@@ -31,7 +29,6 @@ extractTextFromFile({
 const pdfPath = './data/microservices.pdf'
 extractTextFromFile({
   filepath: pdfPath,
-  filetype: 'application/pdf',
 }).then((results) => {
   console.log(`pdf (${pdfPath})`)
   console.log(`\t- mime-type: ${results.mimeType}`)
