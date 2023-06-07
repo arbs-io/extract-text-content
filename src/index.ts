@@ -4,4 +4,4 @@ export {
   extractTextFromFile,
 } from './extractText'
 
-export { fileTypeInfo } from './magicBytes'
+export { fileTypeInfo, GuessedFile } from './magicBytes'
