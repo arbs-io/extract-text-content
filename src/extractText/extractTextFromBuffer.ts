@@ -15,8 +15,7 @@ export async function extractTextFromBuffer({
 
   let mimeType = 'application/pdf'
   if (fileTypeInfos.some((e) => e.mime === mimeType)) {
-    const buffer = Buffer.from(bufferArray.buffer)
-    const pdfData = await pdfParse(buffer)
+    const pdfData = await pdfParse(bufferArray)
     const textExtract: ITextExtract = {
       mimeType: mimeType,
       content: pdfData.text,

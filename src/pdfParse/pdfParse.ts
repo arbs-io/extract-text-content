@@ -1,11 +1,4 @@
 import * as pdfjsLib from 'pdfjs-dist'
-import { version, getDocument } from 'pdfjs-dist'
-
-// interface PDFJS {
-//   disableWorker: boolean
-//   getDocument(dataBuffer: ArrayBuffer): Promise<any> // Update the return type with the actual return type
-//   version: string
-// }
 
 interface RenderOptions {
   normalizeWhitespace: boolean
@@ -56,7 +49,7 @@ const DEFAULT_OPTIONS: Options = {
   max: 0,
 }
 
-async function PDF(dataBuffer: ArrayBuffer, options?: Options): Promise<Ret> {
+async function PDF(dataBuffer: Uint8Array, options?: Options): Promise<Ret> {
   const ret: Ret = {
     numpages: 0,
     numrender: 0,
@@ -72,11 +65,13 @@ async function PDF(dataBuffer: ArrayBuffer, options?: Options): Promise<Ret> {
     options.pagerender = DEFAULT_OPTIONS.pagerender
   if (typeof options.max != 'number') options.max = DEFAULT_OPTIONS.max
 
-  ret.version = version
+  ret.version = pdfjsLib.version
 
   // loadingTask.disableWorker = true
 
-  const loadingTask = await pdfjsLib.getDocument(dataBuffer)
+  const loadingTask = await pdfjsLib.getDocument({
+    data: dataBuffer,
+  })
   const pdfDocument = await loadingTask.promise
   ret.numpages = pdfDocument.numPages
 
