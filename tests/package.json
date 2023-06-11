@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev-local": "npm run npm:uninstall && npm run clean && npm run npm:install-local && npx nodemon",
     "npm:uninstall": "npm uninstall @arbs.io/extract-text-content",
-    "npm:install-local": "npm install ../releases/arbs.io-extract-text-content-0.0.8.tgz",
+    "npm:install-local": "npm install ../releases/arbs.io-extract-text-content-0.0.9.tgz",
     "clean": "node ./scripts/clean.js"
   },
   "keywords": [],
@@ -19,6 +19,6 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "@arbs.io/extract-text-content": "file:../releases/arbs.io-extract-text-content-0.0.8.tgz"
+    "@arbs.io/extract-text-content": "file:../releases/arbs.io-extract-text-content-0.0.9.tgz"
   }
 }

@@ -1,4 +1,5 @@
 import * as pdfjsLib from 'pdfjs-dist'
+import pdfWorker from 'pdfjs-dist/build/pdf.worker'
 
 interface RenderOptions {
   normalizeWhitespace: boolean
@@ -65,9 +66,11 @@ async function PDF(dataBuffer: Uint8Array, options?: Options): Promise<Ret> {
     options.pagerender = DEFAULT_OPTIONS.pagerender
   if (typeof options.max != 'number') options.max = DEFAULT_OPTIONS.max
 
+  pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker
   ret.version = pdfjsLib.version
 
   // loadingTask.disableWorker = true
+  pdfjsLib
 
   const loadingTask = await pdfjsLib.getDocument({
     data: dataBuffer,
