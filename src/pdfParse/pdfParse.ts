@@ -69,9 +69,6 @@ async function PDF(dataBuffer: Uint8Array, options?: Options): Promise<Ret> {
   pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker
   ret.version = pdfjsLib.version
 
-  // loadingTask.disableWorker = true
-  pdfjsLib
-
   const loadingTask = await pdfjsLib.getDocument({
     data: dataBuffer,
   })

@@ -1,6 +1,6 @@
 {
   "name": "@arbs.io/extract-text-content",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Package to parse and retreive text from documents",
   "license": "MIT",
   "private": false,
