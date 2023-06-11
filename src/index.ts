@@ -1,3 +1,5 @@
+export { pdfParse } from './pdfParse'
+
 export {
   ITextExtract,
   extractTextFromBuffer,

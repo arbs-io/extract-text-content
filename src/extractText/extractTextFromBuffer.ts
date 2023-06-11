@@ -1,4 +1,4 @@
-import pdfParse from 'pdf-parse'
+import pdfParse from '../pdfParse/pdfParse'
 import mammoth from 'mammoth'
 import { NodeHtmlMarkdown } from 'node-html-markdown'
 import { ITextExtract } from '.'
@@ -15,8 +15,7 @@ export async function extractTextFromBuffer({
 
   let mimeType = 'application/pdf'
   if (fileTypeInfos.some((e) => e.mime === mimeType)) {
-    const buffer = Buffer.from(bufferArray.buffer)
-    const pdfData = await pdfParse(buffer)
+    const pdfData = await pdfParse(bufferArray)
     const textExtract: ITextExtract = {
       mimeType: mimeType,
       content: pdfData.text,

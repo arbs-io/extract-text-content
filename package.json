@@ -1,6 +1,6 @@
 {
   "name": "@arbs.io/extract-text-content",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "Package to parse and retreive text from documents",
   "license": "MIT",
   "private": false,
@@ -28,11 +28,11 @@
   "scripts": {
     "npm:build": "tsup src/index.ts --minify --format cjs,esm --dts --clean",
     "npm:pack": "npm pack --pack-destination=./releases",
-    "npm:publish": "npm publish --access=public"
+    "npm:publish": "npm publish --access=public",
+    "clean": "node ./scripts/clean.js"
   },
   "devDependencies": {
     "@types/node": "^20.2.5",
-    "@types/pdf-parse": "^1.1.1",
     "tsup": "^6.7.0",
     "typescript": "^5.1.3",
     "unbuild": "^1.2.1"
@@ -40,6 +40,6 @@
   "dependencies": {
     "mammoth": "^1.6.0",
     "node-html-markdown": "^1.3.0",
-    "pdf-parse": "^1.1.1"
+    "pdfjs-dist": "^3.7.107"
   }
 }
