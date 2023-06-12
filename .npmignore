@@ -1,9 +1,10 @@
 /node_modules
 /releases
+/scripts
 /src/*
-/tests
-/package-test
+/tests/*
 .gitignore
 package-lock.json
 tsconfig.json
 esbuild.config.js
+jest.config.js
