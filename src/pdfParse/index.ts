@@ -1,1 +1,1 @@
-export * as pdfParse from './pdfParse'
+// export * as pdfParse from './pdfParse'

@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "mammoth": "^1.6.0",
-    "node-html-markdown": "^1.3.0",
-    "pdfjs-dist": "^3.7.107"
+    "node-ensure": "^0.0.0",
+    "node-html-markdown": "^1.3.0"
   }
 }

@@ -6,8 +6,8 @@ test('extractTextFromFile (pdf)', async () => {
     filepath: testFilePath,
   })
   expect(extText.mimeType).toBe('application/pdf')
-  expect(extText.content.length).toBe(771934)
-  expect(extText.content.substring(5698, 5725)).toBe(
-    'microservices and container'
+  expect(extText.content.length).toBe(805605)
+  expect(extText.content.substring(5699, 5742)).toBe(
+    'Web MVC app, a Web SPA, and a native mobile'
   )
 })

@@ -1,4 +1,4 @@
-export { pdfParse } from './pdfParse'
+// export { pdfParse } from './pdfParse'
 
 export {
   ITextExtract,

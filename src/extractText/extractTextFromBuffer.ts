@@ -1,4 +1,6 @@
-import pdfParse from '../pdfParse/pdfParse'
+// import pdfParse from '../pdfParse/pdfParse'
+import pdfParse from '../../lib/pdf-parse'
+
 import mammoth from 'mammoth'
 import { NodeHtmlMarkdown } from 'node-html-markdown'
 import { ITextExtract } from '.'
